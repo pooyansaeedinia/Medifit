@@ -1,0 +1,364 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Medifit || Online Medical Store
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/home-page.css' %}">
+{% endblock style %}
+
+{% block content %}
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h1>From wellness to care <br> all in one place</h1>
+                <p>Your health is in good hands with Medifit. We're here to provide you with a wide range of healthcare
+                    essentials, carefully selected.</p>
+                <a href="#" class="shop-btn">Shop now <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'media/images/doctor-maintaining-record-medicine-laptop%20copy.png' %}" alt="Healthcare">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust -->
+<section class="trust-banner">
+    <div class="container">
+        <div class="trust-wrapper">
+            <h3>Bringing trusted health solutions to your doorstep focused on quality care & reliability</h3>
+            <p>Our store offers a comprehensive range of pharmaceuticals, health and wellness products, and medical
+                supplies to meet the diverse needs of our community.</p>
+            <a href="#" class="trust-btn">Our story <i class="bi bi-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+<!-- Collection -->
+<section class="collection">
+    <div class="container">
+        <div class="section-header">
+            <h2>Discover our collection</h2>
+            <p>Our medical store offers trusted products easy navigation, and fast shipping.</p>
+            <a href="{% url 'product_app:product_list' %}" class="view-all">View all products <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <!-- Product Slider -->
+        <div class="slider-container">
+            <button class="slider-btn prev-btn" id="prevProductBtn">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <div class="slider-wrapper" id="productSliderWrapper">
+                <div class="slider-track" id="productSliderTrack">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
+                            <span class="product-badge">New</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Hair tablet</h3>
+                            <p class="product-desc">Cure your hair problem</p>
+                            <div class="product-price">
+                                <span class="current-price">$19</span>
+                                <span class="old-price">$25</span>
+                            </div>
+                            <a href="product-detail.html" class="product-btn">View Details</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <button class="slider-btn next-btn" id="nextProductBtn">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+        <div class="slider-dots" id="productDots"></div>
+    </div>
+</section>
+<!-- Category -->
+<section class="categories">
+    <div class="container">
+        <div class="section-header">
+            <h2>Shop by category</h2>
+        </div>
+        <div class="categories-flex">
+            <div class="category-card">
+                <i class="bi bi-heart"></i>
+                <span>Health care</span>
+            </div>
+            <div class="category-card">
+                <i class="bi bi-emoji-heart-eyes"></i>
+                <span>Beauty care</span>
+            </div>
+            <div class="category-card">
+                <i class="bi bi-1-circle"></i>
+                <span>Fitness</span>
+            </div>
+            <div class="category-card">
+                <i class="bi bi-capsule"></i>
+                <span>Medicine</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Reviews -->
+<section class="reviews">
+    <div class="container">
+        <div class="section-header">
+            <h2>Customers review</h2>
+        </div>
+        <!-- Reviews Slider -->
+        <div class="slider-container">
+            <button class="slider-btn prev-btn" id="prevReviewBtn">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <div class="slider-wrapper" id="reviewSliderWrapper">
+                <div class="slider-track" id="reviewSliderTrack">
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="assets/media/images/Thor%20Ragnarok%20Haircut%20And%20Other%20Iconic%20Chris%20Hemsworth%20Hair%20Looks%20copy.png"
+                                     alt="Amirhossein Farahani">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Amirhossein Farahani</h4>
+                                <div class="rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet error iste laudantium
+                                officia praesentium similique.</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="assets/media/images/Henry%20Cavill%20copy.png" alt="Pouyan Saeedinia">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Pouyan Saeedinia</h4>
+                                <div class="rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deserunt doloremque
+                                error impedit veniam vero.</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="assets/media/images/Chris%20Evans%202024%20copy.png" alt="Amirali Asnaashari">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Amirali Asnaashari</h4>
+                                <div class="rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquam asperiores
+                                dolor ea molestiae!</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="assets/media/images/Thor%20Ragnarok%20Haircut%20And%20Other%20Iconic%20Chris%20Hemsworth%20Hair%20Looks%20copy.png"
+                                     alt="Amirhossein Farahani">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Amirhossein Farahani</h4>
+                                <div class="rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus id impedit, nihil
+                                nobis non perspiciatis!</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="assets/media/images/Henry%20Cavill%20copy.png" alt="Pouyan Saeedinia">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Pouyan Saeedinia</h4>
+                                <div class="rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deleniti deserunt
+                                explicabo nobis nulla quia.</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="assets/media/images/Chris%20Evans%202024%20copy.png" alt="Amirali Asnaashari">
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Amirali Asnaashari</h4>
+                                <div class="rating">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium magni possimus quas
+                                quidem, sed tempore?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn next-btn" id="nextReviewBtn">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+        <div class="slider-dots" id="reviewDots"></div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock js %}

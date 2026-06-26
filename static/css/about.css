@@ -1,0 +1,283 @@
+/* About hero */
+.about-hero {
+    background: linear-gradient(135deg, #f5ede2 0%, #faf7f2 100%);
+    padding: 80px 0;
+}
+
+.about-hero-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-hero-content {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-hero-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.about-hero-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+}
+
+.about-badge {
+    display: inline-block;
+    background: #b87c4f;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-hero-content h1 {
+    font-size: 42px;
+    color: #5c4033;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-hero-content p {
+    font-size: 18px;
+    color: #6b5a4e;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* Features */
+.about-features {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-card {
+    flex: 1 1 200px;
+    text-align: center;
+    padding: 25px 20px;
+    background: #faf7f2;
+    border-radius: 16px;
+    border: 1px solid #e8e0d5;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(92, 64, 51, 0.08);
+    border-color: #b87c4f;
+}
+
+.feature-card i {
+    font-size: 40px;
+    color: #b87c4f;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-card h4 {
+    color: #5c4033;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Expectations */
+.expectations {
+    padding: 80px 0;
+    background: #faf7f2;
+}
+
+.expectations h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #5c4033;
+    margin-bottom: 50px;
+}
+
+.expect-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.expect-card {
+    flex: 1 1 220px;
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 20px;
+    border: 1px solid #e8e0d5;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.expect-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(92, 64, 51, 0.08);
+    border-color: #b87c4f;
+}
+
+.expect-card h3 {
+    color: #b87c4f;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.expect-card p {
+    color: #6b5a4e;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Community */
+.community-banner {
+    background: #5c4033;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.community-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.community-wrapper h3 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.community-wrapper p {
+    color: #d1c7bc;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.community-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #b87c4f;
+    color: white;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.community-btn:hover {
+    background: #9b623c;
+    transform: translateY(-2px);
+}
+
+.community-btn i {
+    transition: transform 0.3s;
+}
+
+.community-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-hero-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-hero-content h1 {
+        font-size: 32px;
+    }
+
+    .about-hero-content p {
+        max-width: 100%;
+        margin: 0 auto 20px;
+    }
+
+    .about-hero-image img {
+        max-width: 300px;
+    }
+
+    .what-to-expect h2 {
+        font-size: 28px;
+    }
+
+    .community-wrapper h3 {
+        font-size: 24px;
+    }
+
+    .expect-card {
+        flex: 1 1 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero {
+        padding: 50px 0;
+    }
+
+    .about-hero-content h1 {
+        font-size: 26px;
+    }
+
+    .about-hero-content p {
+        font-size: 16px;
+    }
+
+    .about-features {
+        padding: 40px 0;
+    }
+
+    .feature-card {
+        flex: 1 1 calc(50% - 15px);
+    }
+
+    .expectations {
+        padding: 50px 0;
+    }
+
+    .expectations h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .expect-card {
+        flex: 1 1 100%;
+    }
+
+    .community-banner {
+        padding: 40px 0;
+    }
+
+    .community-wrapper h3 {
+        font-size: 20px;
+    }
+
+    .community-wrapper p {
+        font-size: 14px;
+    }
+
+    .community-btn {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+}

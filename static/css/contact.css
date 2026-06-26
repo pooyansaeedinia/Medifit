@@ -1,0 +1,315 @@
+.contact-hero {
+    background: linear-gradient(135deg, #f5ede2 0%, #faf7f2 100%);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact-hero-content h1 {
+    font-size: 42px;
+    color: #5c4033;
+    margin-bottom: 15px;
+}
+
+.contact-hero-content p {
+    font-size: 18px;
+    color: #6b5a4e;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ========== 2. CONTACT SECTION ========== */
+.contact-section {
+    padding: 60px 0;
+    background: #faf7f2;
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+/* ===== CONTACT FORM ===== */
+.contact-form-wrapper {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-form {
+    background: #ffffff;
+    padding: 40px 35px;
+    border-radius: 24px;
+    border: 1px solid #e8e0d5;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #4a3b32;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e8e0d5;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s;
+    font-family: inherit;
+    background: #ffffff;
+    color: #2c2b28;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #b87c4f;
+    box-shadow: 0 0 0 3px rgba(184, 124, 79, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #c5b9ab;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background: #b87c4f;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.submit-btn:hover {
+    background: #9b623c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(184, 124, 79, 0.3);
+}
+
+/* ===== FAQ SECTION ===== */
+.faq-wrapper {
+    flex: 1;
+    min-width: 300px;
+}
+
+.faq-wrapper h2 {
+    font-size: 28px;
+    color: #5c4033;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e8e0d5;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.faq-item:hover {
+    border-color: #b87c4f;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a3b32;
+    text-align: left;
+    transition: all 0.3s;
+}
+
+.faq-question:hover {
+    color: #b87c4f;
+}
+
+.faq-question i {
+    font-size: 18px;
+    color: #b87c4f;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 20px 20px;
+}
+
+.faq-answer p {
+    color: #6b5a4e;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== 3. COMMUNITY BANNER ========== */
+.community-banner {
+    background: #5c4033;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.community-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.community-wrapper h3 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.community-wrapper p {
+    color: #d1c7bc;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.community-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #b87c4f;
+    color: white;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.community-btn:hover {
+    background: #9b623c;
+    transform: translateY(-2px);
+}
+
+.community-btn i {
+    transition: transform 0.3s;
+}
+
+.community-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* ========== FOOTER ========== */
+.footer-credit {
+    color: #a89a8a;
+    font-size: 13px;
+}
+
+/* ========== 4. RESPONSIVE ========== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+
+    .contact-form-wrapper,
+    .faq-wrapper {
+        min-width: unset;
+    }
+
+    .contact-hero-content h1 {
+        font-size: 32px;
+    }
+
+    .faq-wrapper h2 {
+        font-size: 24px;
+    }
+
+    .community-wrapper h3 {
+        font-size: 24px;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 576px) {
+    .contact-hero {
+        padding: 40px 0;
+    }
+
+    .contact-hero-content h1 {
+        font-size: 26px;
+    }
+
+    .contact-hero-content p {
+        font-size: 16px;
+    }
+
+    .contact-section {
+        padding: 40px 0;
+    }
+
+    .contact-form {
+        padding: 25px 20px;
+    }
+
+    .faq-wrapper h2 {
+        font-size: 20px;
+    }
+
+    .faq-question {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+
+    .community-banner {
+        padding: 40px 0;
+    }
+
+    .community-wrapper h3 {
+        font-size: 20px;
+    }
+
+    .community-wrapper p {
+        font-size: 14px;
+    }
+
+    .community-btn {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+}
