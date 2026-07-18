@@ -281,6 +281,8 @@ function updateProductTotalItems() {
 }
 
 function updateProductSlider() {
+    if (!productTrack) return;
+
     const maxIndex = Math.ceil(productTotalItems - productItemsPerView);
     if (productCurrentIndex > maxIndex) {
         productCurrentIndex = maxIndex;
@@ -364,6 +366,8 @@ function updateReviewTotalItems() {
 }
 
 function updateReviewSlider() {
+    if (!reviewTrack) return;
+
     const maxIndex = Math.ceil(reviewTotalItems - reviewItemsPerView);
     if (reviewCurrentIndex > maxIndex) {
         reviewCurrentIndex = maxIndex;

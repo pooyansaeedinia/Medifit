@@ -4,3 +4,7 @@ from django.shortcuts import render
 
 def home(request):
     return render(request, "home/home-page.html")
+
+
+def shop(request):
+    return render(request, "home/medical-shop.html")

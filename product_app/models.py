@@ -66,8 +66,13 @@ class Product(models.Model):
 
 
 class ProductDetail(models.Model):
+    BADGE_CHOICES = [
+        ("new", "New"),
+        ("discounted", "Discounted"),
+    ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     description = models.CharField(max_length=300)
+    badge = models.CharField(max_length=100, choices=BADGE_CHOICES, default="new")
 
     def __str__(self):
         return f"{self.product.name}'s description"

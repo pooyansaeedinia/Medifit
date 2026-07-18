@@ -95,7 +95,11 @@
                        class="active"
                             {% endif %}>
                         Home</a>
-                    <a href="#">Shop</a>
+                    <a href="{% url 'home:shop' %}"
+                            {% if request.resolver_match.url_name == "shop" %}
+                       class="active"
+                        {% endif %}
+                        >Shop</a>
                     <a href="category.html">Categories</a>
                     <a href="{% url 'product_app:product_list' %}"
                        {% if request.resolver_match.url_name == "product_list" %}
