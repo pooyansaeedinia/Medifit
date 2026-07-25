@@ -44,7 +44,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField(default=10)
     is_available = models.BooleanField(default=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True, upload_to='images/')
 
     def save(self, *args, **kwargs):
         self.is_available = self.stock > 0

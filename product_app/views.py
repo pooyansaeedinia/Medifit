@@ -24,13 +24,13 @@ def product_list(request):
         Product.objects.filter(is_available=True)
         .select_related('brand', 'category')
         .prefetch_related('productdetail_set')
-        .order_by('-id')
+        .order_by('category')
     )
 
     for product in products:
         _enrich_product(product)
 
-    paginator = Paginator(products, 12)  # 12 items per page
+    paginator = Paginator(products, 15)
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)

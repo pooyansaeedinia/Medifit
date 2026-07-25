@@ -16,10 +16,10 @@
             <div class="shop-hero-content">
                 <h1>Your trusted care <br> now and always</h1>
                 <p>For the best results, align your health needs with your medication plan.</p>
-                <a href="#" class="shop-hero-btn">Shop now <i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'product_app:product_list' %}" class="shop-hero-btn">Shop now <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="shop-hero-image">
-                <img src="assets/media/images/Pill%20Bottle%20Design%20_%203D%20Product%20Rendering%20-%20Seun%20Ogunlade%20O_%20copy.png"
+                <img src="{% static 'media/images/pills_bottel.png' %}"
                      alt="Medical Care">
             </div>
         </div>
