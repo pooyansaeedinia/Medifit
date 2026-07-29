@@ -2,10 +2,10 @@
 {% load static %}
 
 {% block title %}
-    Medifit || Online Medical Store
+Medifit || Online Medical Store
 {% endblock title %}
 {% block style %}
-    <link rel="stylesheet" href="{% static 'css/home-page.css' %}">
+<link rel="stylesheet" href="{% static 'css/home-page.css' %}">
 {% endblock style %}
 
 {% block content %}
@@ -20,7 +20,8 @@
                 <a href="#" class="shop-btn">Shop now <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="hero-image">
-                <img src="{% static 'media/images/doctor-maintaining-record-medicine-laptop%20copy.png' %}" alt="Healthcare">
+                <img src="{% static 'media/images/doctor-maintaining-record-medicine-laptop%20copy.png' %}"
+                     alt="Healthcare">
             </div>
         </div>
     </div>
@@ -43,7 +44,8 @@
         <div class="section-header">
             <h2>Discover our collection</h2>
             <p>Our medical store offers trusted products easy navigation, and fast shipping.</p>
-            <a href="{% url 'product_app:product_list' %}" class="view-all">View all products <i class="bi bi-arrow-right"></i></a>
+            <a href="{% url 'product_app:product_list' %}" class="view-all">View all products <i
+                    class="bi bi-arrow-right"></i></a>
         </div>
         <!-- Product Slider -->
         <div class="slider-container">
@@ -189,20 +191,28 @@
         </div>
         <div class="categories-flex">
             <div class="category-card">
-                <i class="bi bi-heart"></i>
-                <span>Health care</span>
+                <a href="#">
+                    <i class="bi bi-heart"></i>
+                    <span>Health care</span>
+                </a>
             </div>
             <div class="category-card">
-                <i class="bi bi-emoji-heart-eyes"></i>
-                <span>Beauty care</span>
+                <a href="#">
+                    <i class="bi bi-emoji-heart-eyes"></i>
+                    <span>Beauty care</span>
+                </a>
             </div>
             <div class="category-card">
-                <i class="bi bi-1-circle"></i>
-                <span>Fitness</span>
+                <a href="#">
+                    <i class="bi bi-1-circle"></i>
+                    <span>Fitness</span>
+                </a>
             </div>
             <div class="category-card">
-                <i class="bi bi-capsule"></i>
-                <span>Medicine</span>
+                <a href="#">
+                    <i class="bi bi-capsule"></i>
+                    <span>Medicine</span>
+                </a>
             </div>
         </div>
     </div>
@@ -360,5 +370,5 @@
 {% endblock content %}
 
 {% block js %}
-    <script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock js %}
