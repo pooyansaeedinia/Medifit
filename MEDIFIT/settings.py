@@ -28,7 +28,7 @@ DEBUG = config("DEBUG", cast=bool, default=False)
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "https://medifit-7a8i.onrender.com"
+    ".onrender.com"
 ]
 
 # Application definition
