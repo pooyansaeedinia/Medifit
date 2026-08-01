@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from product_app.views import _enrich_product
 
-from product_app.models import Product
+from product_app.models import Product, Category, Comments
 
 
 # Create your views here.
@@ -18,8 +18,15 @@ def home(request):
     for product in products:
         _enrich_product(product)
 
+
+    categories = Category.objects.all()
+
+    comments = Comments.objects.all().order_by('-rate')[:5]
+
     context = {
-        'products': products
+        'products': products,
+        'categories': categories,
+        'comments': comments
     }
     return render(request, "home/home-page.html", context)
 

@@ -1,5 +1,7 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -14,7 +16,7 @@ class Brand(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
-    image = models.ImageField(null=True, blank=True)
+    css_class = models.CharField(max_length=100, default="")
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -76,3 +78,15 @@ class ProductDetail(models.Model):
 
     def __str__(self):
         return f"{self.product.name}'s description"
+
+
+
+class Comments(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rate = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)], default=0)
+    comment = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.product.name}'s comment"
