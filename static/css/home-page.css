@@ -328,6 +328,10 @@
     transition: all 0.3s ease;
 }
 
+.category-card a {
+    text-decoration: none;
+}
+
 .category-card:hover {
     background: #b87c4f;
     border-color: #b87c4f;
