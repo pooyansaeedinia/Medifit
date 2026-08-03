@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Medifit || About
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock style %}
+
+{% block content %}
+<!--About hero-->
+<section class="about-hero">
+    <div class="container">
+        <div class="about-hero-wrapper">
+            <div class="about-hero-content">
+                <span class="about-badge">About us</span>
+                <h1>Health products you can trust, service you deserve</h1>
+                <p>Our focus is on nurturing wellness and empowering health for all ages well being for people
+                    worldwide.</p>
+            </div>
+            <div class="about-hero-image">
+                <img src="{% static 'media/images/pills_bottel.png' %}"
+                     alt="About Medifit">
+            </div>
+        </div>
+    </div>
+</section>
+<!--Features-->
+<section class="about-features">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="bi bi-truck"></i>
+                <h4>Free shipping</h4>
+            </div>
+            <div class="feature-card">
+                <i class="bi bi-arrow-repeat"></i>
+                <h4>Easy refund</h4>
+            </div>
+            <div class="feature-card">
+                <i class="bi bi-headset"></i>
+                <h4>Online support</h4>
+            </div>
+            <div class="feature-card">
+                <i class="bi bi-credit-card"></i>
+                <h4>Flexible payment</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Expectations-->
+<section class="expectations">
+    <div class="container">
+        <h2>What to Expect When You Join</h2>
+        <div class="expect-grid">
+            <div class="expect-card">
+                <h3>Our Team</h3>
+                <p>Dedicated professionals committed to your health and wellness journey.</p>
+            </div>
+            <div class="expect-card">
+                <h3>Mission</h3>
+                <p>To provide accessible, high-quality healthcare products for everyone.</p>
+            </div>
+            <div class="expect-card">
+                <h3>Commitments</h3>
+                <p>We commit to quality, trust, and transparency in everything we do.</p>
+            </div>
+            <div class="expect-card">
+                <h3>Vision</h3>
+                <p>We're committed to supporting your health and building a healthier world.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Community-->
+<section class="community-banner">
+    <div class="container">
+        <div class="community-wrapper">
+            <h3>Join our trustable Medifit product community</h3>
+            <p>Join us as we build a community where wellness is accessible, education is empowering, and health is a
+                shared journey.</p>
+            <a href="#" class="community-btn">Get started <i class="bi bi-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock js %}

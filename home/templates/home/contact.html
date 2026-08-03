@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Medifit || Contact us
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock style %}
+
+{% block content %}
+<!--Contact us-->
+<section class="contact-hero">
+    <div class="container">
+        <div class="contact-hero-content">
+            <h1>Contact us</h1>
+            <p>Have questions or need support? Get in touch with our team — we're here to help!</p>
+        </div>
+    </div>
+</section>
+<!--Contact form and FAQ-->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="fullName">Full name</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">Email address</label>
+                        <input type="email" id="emailAddress" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone number</label>
+                        <input type="tel" id="phoneNumber" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+            <!-- FAQ Section -->
+            <div class="faq-wrapper">
+                <h2>Frequently Asked Questions?</h2>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What products do you offer?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of medical supplies, including prescription medications, over-the-counter products, supplements, and personal care items.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How can I place an order?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can place an order through our website by browsing our products and adding them to your cart. Follow the checkout process to complete your purchase.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you provide home delivery?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we provide home delivery for all orders. Delivery times may vary depending on your location.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I return or exchange products?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we have a flexible return and exchange policy. Please contact our support team for assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Community-->
+<section class="community-banner">
+    <div class="container">
+        <div class="community-wrapper">
+            <h3>Join our trustable Medifit product community</h3>
+            <p>Join us as we build a community where wellness is accessible, education is empowering, and health is a shared journey.</p>
+            <a href="#" class="community-btn">Get started <i class="bi bi-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+{% endblock js %}
+

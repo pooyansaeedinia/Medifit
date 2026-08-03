@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/category.css' %}">
+{% endblock style %}
+
+{% block title %}
+    Medifit || Categories
+{% endblock title %}
+
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Product Categories</h1>
+        <p>Browse our wide range of health and wellness products</p>
+    </div>
+</section>
+<!--Categories-->
+<section class="categories-section">
+    <div class="container">
+        <div class="categories-flex">
+            <!-- Category card -->
+            {% for category in categories %}
+            <article class="category-card">
+                <div class="category-image">
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                </div>
+                <div class="category-info">
+                    <h3>{{ category.name }}</h3>
+                    <span class="item-count">{{ category.product_count }} products</span>
+                    <a href="#" class="category-btn">View Products</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--Promo-->
+<section class="promo-section">
+    <div class="container">
+        <h2>Exclusive Deals & Benefits 🎁</h2>
+        <p>Join thousands of smart shoppers who enjoy our discounts, free shipping, and loyalty rewards — all in one
+            place.</p>
+        <div class="promo-grid">
+            <div class="promo-card">
+                <div class="promo-icon">💸</div>
+                <h5>Flash Sales</h5>
+                <p>Save up to 70% on top products every weekend!</p>
+            </div>
+            <div class="promo-card">
+                <div class="promo-icon">🚚</div>
+                <h5>Free Shipping</h5>
+                <p>Enjoy free delivery on orders over $100.</p>
+            </div>
+            <div class="promo-card">
+                <div class="promo-icon">💎</div>
+                <h5>VIP Club</h5>
+                <p>Earn points & get exclusive early access to new arrivals.</p>
+            </div>
+            <div class="promo-card">
+                <div class="promo-icon">🔁</div>
+                <h5>Easy Returns</h5>
+                <p>Not satisfied? Get your money back within 7 days.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+{% block js %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock js %}
+

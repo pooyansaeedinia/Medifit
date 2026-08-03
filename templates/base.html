@@ -98,16 +98,28 @@
                     <a href="{% url 'home:shop' %}"
                             {% if request.resolver_match.url_name == "shop" %}
                        class="active"
-                        {% endif %}
-                        >Shop</a>
-                    <a href="category.html">Categories</a>
-                    <a href="{% url 'product_app:product_list' %}"
-                       {% if request.resolver_match.url_name == "product_list" %}
+                            {% endif %}
+                    >Shop</a>
+                    <a href="{% url 'product_app:category' %}"
+                            {% if request.resolver_match.url_name == "category" %}
                        class="active"
-                        {% endif %}>
-                       Products</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
+                            {% endif %}>
+                        Categories</a>
+                    <a href="{% url 'product_app:product_list' %}"
+                            {% if request.resolver_match.url_name == "product_list" %}
+                       class="active"
+                            {% endif %}>
+                        Products</a>
+                    <a href="{% url 'home:about' %}"
+                            {% if request.resolver_match.url_name == "about" %}
+                       class="active"
+                            {% endif %}>
+                        About</a>
+                    <a href="{% url 'home:contact' %}"
+                            {% if request.resolver_match.url_name == "contact" %}
+                       class="active"
+                            {% endif %}>
+                        Contact</a>
                 </nav>
                 <div class="header-icons">
                     <i class="bi bi-search"></i>

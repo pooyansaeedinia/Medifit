@@ -33,3 +33,11 @@ def home(request):
 
 def shop(request):
     return render(request, "home/medical-shop.html")
+
+
+def about(request):
+    return render(request, "home/about.html")
+
+
+def contact(request):
+    return render(request, "home/contact.html")

@@ -2,10 +2,18 @@ from decimal import Decimal
 from django.core.paginator import Paginator
 from django.shortcuts import render
 
-from .models import Product
+from .models import Product, Category
+
+
+def category_list(request):
+    categories = Category.objects.all()
+    context = {
+        'categories': categories,
+    }
+    return render(request, 'product_app/category.html', context)
+
 
 DISCOUNT_RATIO = Decimal('0.76')
-
 
 def _enrich_product(product):
     detail = product.productdetail_set.first()
@@ -39,3 +47,5 @@ def product_list(request):
         'products': page_obj,
     }
     return render(request, 'product_app/products.html', context)
+
+

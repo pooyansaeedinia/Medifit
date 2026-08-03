@@ -17,6 +17,11 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     css_class = models.CharField(max_length=100, default="")
+    image = models.ImageField(null=True, blank=True, default=None)
+
+
+    def product_count(self):
+        return self.products.count()
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -40,7 +45,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     short_description = models.TextField()
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
