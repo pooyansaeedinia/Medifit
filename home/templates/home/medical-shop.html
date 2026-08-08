@@ -10,6 +10,7 @@
 {% endblock style %}
 
 {% block content %}
+<!--Hero-->
 <section class="shop-hero">
     <div class="container">
         <div class="shop-hero-wrapper">
@@ -30,34 +31,19 @@
     <div class="container">
         <h2 class="category-title">Shop by Category</h2>
         <div class="categories-shop-flex">
+            {% if categories %}
+            {% for category in categories %}
             <article class="category-shop-card">
                 <div class="icon-container">
-                    <i class="bi bi-heart"></i>
+                    <i class="{{ category.css_class}}"></i>
                 </div>
-                <h4>Health care</h4>
-                <span class="item-count">32 items</span>
+                <h4>{{ category.name }}</h4>
+                <span class="item-count">{{ category.product_count }} items</span>
             </article>
-            <article class="category-shop-card">
-                <div class="icon-container">
-                    <i class="bi bi-emoji-heart-eyes"></i>
-                </div>
-                <h4>Beauty care</h4>
-                <span class="item-count">32 items</span>
-            </article>
-            <article class="category-shop-card">
-                <div class="icon-container">
-                    <i class="bi bi-1-circle"></i>
-                </div>
-                <h4>Fitness</h4>
-                <span class="item-count">32 items</span>
-            </article>
-            <article class="category-shop-card">
-                <div class="icon-container">
-                    <i class="bi bi-capsule"></i>
-                </div>
-                <h4>Medicine</h4>
-                <span class="item-count">32 items</span>
-            </article>
+            {% endfor %}
+            {% else %}
+            <p>No categories available.</p>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -71,126 +57,35 @@
             </button>
             <div class="slider-wrapper" id="latestSliderWrapper">
                 <div class="slider-track" id="latestSliderTrack">
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                            <span class="product-badge">New</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Hair tablet</h3>
-                            <p class="product-desc">Cure your hair problem</p>
-                            <div class="product-price">
-                                <span class="current-price">$19</span>
-                                <span class="old-price">$25</span>
-                            </div>
-                            <a href="product-detail.html" class="product-btn">View Details</a>
-                        </div>
-                    </article>
+            {% if products %}
+            {% for product in products %}
+            <article class="product-card">
+                <div class="product-image">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="{% static 'media/images/Perfectil Hair copy.png' %}" alt="{{ product.name }}">
+                    {% endif %}
+                    {% if product.badge_detail %}
+                        <span class="product-badge">{{ product.badge_detail.get_badge_display }}</span>
+                    {% endif %}
+                </div>
+                <div class="product-info">
+                    <h3>{{ product.name }}</h3>
+                    <p class="product-desc">{{ product.description }}</p>
+                    <div class="product-price">
+                                <span class="current-price">${{ product.price|floatformat:0 }}</span>
+                                {% if product.display_old_price %}
+                                    <span class="old-price">${{ product.display_old_price|floatformat:0 }}</span>
+                                {% endif %}
+                    </div>
+                    <a href="product-detail.html" class="product-btn">View Details</a>
+                </div>
+            </article>
+            {% endfor %}
+            {% else %}
+            <p>No products available.</p>
+            {% endif %}
                 </div>
             </div>
             <button class="slider-btn next-btn" id="nextLatestBtn">
@@ -199,7 +94,7 @@
         </div>
         <div class="slider-dots" id="latestProductDots"></div>
         <div class="view-all-products">
-            <a href="products.html" class="view-all-link">
+            <a href="{% url 'product_app:product_list' %}" class="view-all-link">
                 View All Products <i class="bi bi-arrow-right"></i>
             </a>
         </div>
@@ -210,129 +105,39 @@
     <div class="container">
         <h2 class="explore-title">Explore Our store Collection</h2>
         <div class="explore-flex">
+            {% if products_2 %}
+            {% for product in products_2 %}
             <article class="product-card">
                 <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="{% static 'media/images/Perfectil Hair copy.png' %}" alt="{{ product.name }}">
+                    {% endif %}
+                    {% if product.badge_detail %}
+                        <span class="product-badge">{{ product.badge_detail.get_badge_display }}</span>
+                    {% endif %}
                 </div>
                 <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
+                    <h3>{{ product.name }}</h3>
+                    <p class="product-desc">{{ product.description }}</p>
                     <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
+                                <span class="current-price">${{ product.price|floatformat:0 }}</span>
+                                {% if product.display_old_price %}
+                                    <span class="old-price">${{ product.display_old_price|floatformat:0 }}</span>
+                                {% endif %}
                     </div>
                     <a href="product-detail.html" class="product-btn">View Details</a>
                 </div>
             </article>
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
-                    <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
-                    </div>
-                    <a href="product-detail.html" class="product-btn">View Details</a>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
-                    <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
-                    </div>
-                    <a href="product-detail.html" class="product-btn">View Details</a>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
-                    <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
-                    </div>
-                    <a href="product-detail.html" class="product-btn">View Details</a>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
-                    <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
-                    </div>
-                    <a href="product-detail.html" class="product-btn">View Details</a>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
-                    <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
-                    </div>
-                    <a href="product-detail.html" class="product-btn">View Details</a>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
-                    <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
-                    </div>
-                    <a href="product-detail.html" class="product-btn">View Details</a>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="product-image">
-                    <img src="assets/media/images/Perfectil%20Hair%20copy.png" alt="Laptop Pro">
-                    <span class="product-badge">New</span>
-                </div>
-                <div class="product-info">
-                    <h3>Hair tablet</h3>
-                    <p class="product-desc">Cure your hair problem</p>
-                    <div class="product-price">
-                        <span class="current-price">$19</span>
-                        <span class="old-price">$25</span>
-                    </div>
-                    <a href="product-detail.html" class="product-btn">View Details</a>
-                </div>
-            </article>
+            {% endfor %}
+            {% else %}
+            <p>No products available.</p>
+            {% endif %}
+            
         </div>
         <div class="view-all-products">
-            <a href="products.html" class="view-all-link">
+            <a href="{% url 'product_app:product_list' %}" class="view-all-link">
                 View All Products <i class="bi bi-arrow-right"></i>
             </a>
         </div>
@@ -343,7 +148,7 @@
     <div class="container">
         <div class="discount-wrapper">
             <div class="discount-image">
-                <img src="assets/media/images/Капсулы%20Omega%20карточка%20Wildberries%20copy.png" alt="Discount">
+                <img src="{% static 'media/images/discount_banner.png' %}" alt="Discount">
             </div>
             <div class="discount-content">
                 <h3>Sign up for an instant 15% Discount</h3>
@@ -373,5 +178,5 @@
 
 {% block js %}
     <script src="{% static 'js/index.js' %}"></script>
-    <script src="{% static 'js/medical-shop.js' %}js/medical-shop.js"></script>
+    <script src="{% static 'js/medical-shop.js' %}"></script>
 {% endblock js %}
