@@ -29,7 +29,7 @@
                 <div class="category-info">
                     <h3>{{ category.name }}</h3>
                     <span class="item-count">{{ category.product_count }} products</span>
-                    <a href="#" class="category-btn">View Products</a>
+                    <a href="{% url 'product_app:product_list' id=category.id %}" class="category-btn">View Products</a>
                 </div>
             </article>
             {% endfor %}

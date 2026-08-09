@@ -1,6 +1,7 @@
 from decimal import Decimal
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.db.models import Q
 
 from .models import Product, Category
 
@@ -27,12 +28,30 @@ def _enrich_product(product):
     return product
 
 
-def product_list(request):
+def product_list(request, id):
+    query = request.GET.get("q", "").strip()
+
+    products = Product.objects.filter(
+        is_available=True
+    )
+
+    if id != 0:
+        products = products.filter(category_id=id)
+
+    if query:
+        products = products.filter(
+            Q(name__icontains=query) |
+            Q(short_description__icontains=query) |
+            Q(description__icontains=query) |
+            Q(brand__name__icontains=query) |
+            Q(category__name__icontains=query)
+        )
+
     products = (
-        Product.objects.filter(is_available=True)
-        .select_related('brand', 'category')
-        .prefetch_related('productdetail_set')
-        .order_by('category')
+        products
+        .select_related("brand", "category")
+        .prefetch_related("productdetail_set")
+        .order_by("-id")
     )
 
     for product in products:
@@ -40,12 +59,15 @@ def product_list(request):
 
     paginator = Paginator(products, 15)
 
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+    page_obj = paginator.get_page(
+        request.GET.get("page")
+    )
 
-    context = {
-        'products': page_obj,
-    }
-    return render(request, 'product_app/products.html', context)
-
+    return render(
+        request,
+        "product_app/products.html",
+        {
+            "products": page_obj,
+        }
+    )
 

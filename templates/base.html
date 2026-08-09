@@ -29,25 +29,13 @@
                     <i class="bi bi-search"></i>
                 </div>
                 <h3>What are you looking for?</h3>
+                <form method="GET" action="{% url 'product_app:product_list' id=0 %}" id="searchForm">
                 <div class="search-input-wrapper">
-                    <input type="text" id="searchInput" placeholder="Search for medicines, health products..."
+                    <input type="search" id="searchInput" name="q" placeholder="Search for medicines, health products..."
                            autocomplete="off" aria-label="Search">
-                    <button id="searchSubmitBtn"><i class="bi bi-arrow-right"></i></button>
+                    <button id="searchSubmitBtn" type="submit"><i class="bi bi-arrow-right"></i></button>
                 </div>
-                <div class="search-suggestions" id="searchSuggestions">
-                    <p class="suggestions-title">Popular searches:</p>
-                    <div class="suggestions-tags">
-                        <span>Hair tablets</span>
-                        <span>Pressure measuring</span>
-                        <span>Temperature gun</span>
-                        <span>Nebulizer mask</span>
-                        <span>Vitamins</span>
-                    </div>
-                </div>
-                <div class="search-results" id="searchResults">
-                    <p class="results-title">Products found:</p>
-                    <div class="results-list" id="resultsList"></div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -105,7 +93,7 @@
                        class="active"
                             {% endif %}>
                         Categories</a>
-                    <a href="{% url 'product_app:product_list' %}"
+                    <a href="{% url 'product_app:product_list' id=0 %}"
                             {% if request.resolver_match.url_name == "product_list" %}
                        class="active"
                             {% endif %}>
@@ -143,7 +131,7 @@
             <li><a href="{% url 'home:home' %}">Home</a></li>
             <li><a href="#">Shop</a></li>
             <li><a href="category.html">Categories</a></li>
-            <li><a href="{% url 'product_app:product_list' %}">Products</a></li>
+            <li><a href="{% url 'product_app:product_list' id=0 %}">Products</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
