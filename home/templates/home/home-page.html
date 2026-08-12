@@ -97,7 +97,7 @@
                 {% if categories %}
                     {% for category in categories %}
                         <div class="category-card">
-                            <a href="#">
+                            <a href="{% url 'product_app:product_list' id=category.id %}">
                                 <i class="{{ category.css_class }}"></i>
                                 <span>{{ category.name }}</span>
                             </a>

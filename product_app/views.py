@@ -17,7 +17,7 @@ def category_list(request):
 DISCOUNT_RATIO = Decimal('0.76')
 
 def _enrich_product(product):
-    detail = product.productdetail_set.first()
+    detail = product.productbadge_set.first()
     product.badge_detail = detail
     if detail and detail.badge == 'discounted':
         product.display_old_price = (
@@ -71,3 +71,19 @@ def product_list(request, id):
         }
     )
 
+
+def product_detail(request, slug):
+    product = Product.objects.filter(slug=slug).first()
+    details = product.productdetail_set.all()
+    for detail in details:
+        print(detail.description)
+
+    _enrich_product(product)
+
+    return render(
+        request,
+        "product_app/product_detail.html",
+        {
+            "product": product,
+        }
+    )

@@ -17,33 +17,12 @@
             <div class="shop-hero-content">
                 <h1>Your trusted care <br> now and always</h1>
                 <p>For the best results, align your health needs with your medication plan.</p>
-                <a href="{% url 'product_app:product_list' %}" class="shop-hero-btn">Shop now <i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'product_app:product_list' id=0 %}" class="shop-hero-btn">Shop now <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="shop-hero-image">
                 <img src="{% static 'media/images/pills_bottel.png' %}"
                      alt="Medical Care">
             </div>
-        </div>
-    </div>
-</section>
-<!--Category-->
-<section class="categories-shop">
-    <div class="container">
-        <h2 class="category-title">Shop by Category</h2>
-        <div class="categories-shop-flex">
-            {% if categories %}
-            {% for category in categories %}
-            <article class="category-shop-card">
-                <div class="icon-container">
-                    <i class="{{ category.css_class}}"></i>
-                </div>
-                <h4>{{ category.name }}</h4>
-                <span class="item-count">{{ category.product_count }} items</span>
-            </article>
-            {% endfor %}
-            {% else %}
-            <p>No categories available.</p>
-            {% endif %}
         </div>
     </div>
 </section>
@@ -94,7 +73,7 @@
         </div>
         <div class="slider-dots" id="latestProductDots"></div>
         <div class="view-all-products">
-            <a href="{% url 'product_app:product_list' %}" class="view-all-link">
+            <a href="{% url 'product_app:product_list' id=0 %}" class="view-all-link">
                 View All Products <i class="bi bi-arrow-right"></i>
             </a>
         </div>
@@ -137,7 +116,7 @@
             
         </div>
         <div class="view-all-products">
-            <a href="{% url 'product_app:product_list' %}" class="view-all-link">
+            <a href="{% url 'product_app:product_list' id=0 %}" class="view-all-link">
                 View All Products <i class="bi bi-arrow-right"></i>
             </a>
         </div>

@@ -150,8 +150,9 @@
                     <h3>Subscribe to our Newsletter</h3>
                     <p>Get the latest updates on new products and special offers</p>
                 </div>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" aria-label="email">
+                <form class="newsletter-form" method="POST" action="{% url 'home:subscribe' %}">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="Enter your email address" aria-label="email">
                     <button type="submit">Subscribe</button>
                 </form>
             </div>
