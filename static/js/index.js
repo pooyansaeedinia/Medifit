@@ -32,71 +32,21 @@ const searchModal = document.getElementById('searchModal');
 const closeSearchBtn = document.getElementById('closeSearchModal');
 const searchModalOverlay = document.querySelector('.search-modal-overlay');
 const searchInput = document.getElementById('searchInput');
-const searchSubmitBtn = document.getElementById('searchSubmitBtn');
-const searchResultsDiv = document.getElementById('searchResults');
-const resultsList = document.getElementById('resultsList');
-const suggestionsDiv = document.getElementById('searchSuggestions');
 
-// Products
-const products = [
-    { name: "Hair tablets", price: "$19.00" },
-    { name: "Pressure measuring", price: "$25.00" },
-    { name: "Diving mask", price: "$40.00" },
-    { name: "Temperature gun", price: "$20.00" },
-    { name: "Nebulizer mask", price: "$15.00" },
-    { name: "Vitamin C 1000mg", price: "$12.00" },
-    { name: "Fish Oil Omega-3", price: "$28.00" },
-    { name: "Face Mask Surgical", price: "$8.00" }
-];
-
-// Open modal
 function openSearchModal() {
+    if (!searchModal) return;
     searchModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-// Close modal
 function closeSearchModal() {
+    if (!searchModal) return;
     searchModal.classList.remove('active');
     document.body.style.overflow = '';
-    searchInput.value = '';
-    searchResultsDiv.style.display = 'none';
-    suggestionsDiv.style.display = 'block';
-}
-
-// Search function
-function performSearch(query) {
-    if (!query.trim()) {
-        searchResultsDiv.style.display = 'none';
-        suggestionsDiv.style.display = 'block';
-        return;
-    }
-
-    const filtered = products.filter(product =>
-        product.name.toLowerCase().includes(query.toLowerCase())
-    );
-
-    if (filtered.length > 0) {
-        resultsList.innerHTML = filtered.map(product => `
-            <div class="result-item" onclick="selectProduct('${product.name}')">
-                <span class="result-name">${product.name}</span>
-                <span class="result-price">${product.price}</span>
-            </div>
-        `).join('');
-        searchResultsDiv.style.display = 'block';
-        suggestionsDiv.style.display = 'none';
-    } else {
-        resultsList.innerHTML = '<div style="padding: 20px; text-align: center; color: #a89a8a;">No products found</div>';
-        searchResultsDiv.style.display = 'block';
-        suggestionsDiv.style.display = 'none';
+    if (searchInput) {
+        searchInput.value = '';
     }
 }
-
-// Select product from results
-window.selectProduct = function(productName) {
-    alert(`You selected: ${productName}\nThis would redirect to product page.`);
-    closeSearchModal();
-};
 
 if (searchIcon) {
     searchIcon.addEventListener('click', openSearchModal);
@@ -110,34 +60,10 @@ if (searchModalOverlay) {
     searchModalOverlay.addEventListener('click', closeSearchModal);
 }
 
-if (searchSubmitBtn) {
-    searchSubmitBtn.addEventListener('click', () => {
-        performSearch(searchInput.value);
-    });
-}
-
-if (searchInput) {
-    searchInput.addEventListener('keyup', (e) => {
-        performSearch(searchInput.value);
-        if (e.key === 'Enter') {
-            performSearch(searchInput.value);
-        }
-    });
-}
-
-// Close modal with ESC key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && searchModal && searchModal.classList.contains('active')) {
         closeSearchModal();
     }
-});
-
-// Click on suggestion tags
-document.querySelectorAll('.suggestions-tags span').forEach(tag => {
-    tag.addEventListener('click', () => {
-        searchInput.value = tag.textContent;
-        performSearch(tag.textContent);
-    });
 });
 
 // Mobile search modal
@@ -146,11 +72,10 @@ const mobileSearchModal = document.getElementById('mobileSearchModal');
 const closeMobileSearch = document.getElementById('closeMobileSearch');
 const cancelMobileSearch = document.getElementById('cancelMobileSearch');
 const mobileSearchInput = document.getElementById('mobileSearchInput');
+const mobileSearchForm = document.getElementById('mobileSearchForm');
 const mobileSuggestions = document.getElementById('mobileSuggestions');
 const mobileSearchResults = document.getElementById('mobileSearchResults');
-const mobileResultsList = document.getElementById('mobileResultsList');
 
-// Open mobile search
 function openMobileSearch() {
     if (mobileSearchModal) {
         mobileSearchModal.classList.add('active');
@@ -163,7 +88,6 @@ function openMobileSearch() {
     }
 }
 
-// Close mobile search
 function closeMobileSearchModal() {
     if (mobileSearchModal) {
         mobileSearchModal.classList.remove('active');
@@ -180,41 +104,13 @@ function closeMobileSearchModal() {
     }
 }
 
-// Search function for mobile
-function performMobileSearch(query) {
-    if (!query || query.trim() === '') {
-        if (mobileSuggestions) mobileSuggestions.style.display = 'block';
-        if (mobileSearchResults) mobileSearchResults.style.display = 'none';
-        return;
-    }
-
-    const filtered = products.filter(function(product) {
-        return product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-    });
-
-    if (filtered.length > 0) {
-        let html = '';
-        for (let i = 0; i < filtered.length; i++) {
-            html = html + '<div class="mobile-result-item" onclick="selectMobileProduct(\'' + filtered[i].name + '\')">';
-            html = html + '<span class="mobile-result-name">' + filtered[i].name + '</span>';
-            html = html + '<span class="mobile-result-price">' + filtered[i].price + '</span>';
-            html = html + '</div>';
-        }
-        mobileResultsList.innerHTML = html;
-        mobileSuggestions.style.display = 'none';
-        mobileSearchResults.style.display = 'block';
-    } else {
-        mobileResultsList.innerHTML = '<div style="padding: 20px; text-align: center; color: #a89a8a;">No products found</div>';
-        mobileSuggestions.style.display = 'none';
-        mobileSearchResults.style.display = 'block';
+function submitMobileSearch(query) {
+    if (!mobileSearchForm || !mobileSearchInput) return;
+    mobileSearchInput.value = query.trim();
+    if (mobileSearchInput.value) {
+        mobileSearchForm.submit();
     }
 }
-
-
-window.selectMobileProduct = function(productName) {
-    alert('You selected: ' + productName + '\nThis would redirect to product page.');
-    closeMobileSearchModal();
-};
 
 if (mobileSearchIconNew) {
     mobileSearchIconNew.addEventListener('click', openMobileSearch);
@@ -229,10 +125,10 @@ if (cancelMobileSearch) {
 }
 
 if (mobileSearchInput) {
-    mobileSearchInput.addEventListener('keyup', function(e) {
-        performMobileSearch(mobileSearchInput.value);
+    mobileSearchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            performMobileSearch(mobileSearchInput.value);
+            e.preventDefault();
+            submitMobileSearch(mobileSearchInput.value);
         }
     });
 }
@@ -240,9 +136,7 @@ if (mobileSearchInput) {
 const mobileTags = document.querySelectorAll('.mobile-suggestions-tags span');
 for (let i = 0; i < mobileTags.length; i++) {
     mobileTags[i].addEventListener('click', function() {
-        const tagText = this.textContent;
-        mobileSearchInput.value = tagText;
-        performMobileSearch(tagText);
+        submitMobileSearch(this.textContent);
     });
 }
 

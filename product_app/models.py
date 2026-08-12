@@ -29,9 +29,16 @@ class Category(models.Model):
             slug = base_slug
             counter = 1
 
-            while Product.objects.filter(slug=slug).exists():
+            queryset = Category.objects.filter(slug=slug)
+            if self.pk:
+                queryset = queryset.exclude(pk=self.pk)
+
+            while queryset.exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
+                queryset = Category.objects.filter(slug=slug)
+                if self.pk:
+                    queryset = queryset.exclude(pk=self.pk)
 
             self.slug = slug
 
@@ -60,9 +67,16 @@ class Product(models.Model):
             slug = base_slug
             counter = 1
 
-            while Product.objects.filter(slug=slug).exists():
+            queryset = Product.objects.filter(slug=slug)
+            if self.pk:
+                queryset = queryset.exclude(pk=self.pk)
+
+            while queryset.exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
+                queryset = Product.objects.filter(slug=slug)
+                if self.pk:
+                    queryset = queryset.exclude(pk=self.pk)
 
             self.slug = slug
 

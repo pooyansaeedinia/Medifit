@@ -51,23 +51,23 @@
         <!--Pagination-->
             <div class="pagination">
                 {% if products.has_previous %}
-                    <a href="?page={{ products.previous_page_number }}" class="prev">
+                    <a href="?page={{ products.previous_page_number }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}" class="prev">
                         Previous
                     </a>
                 {% endif %}
                 {% for num in products.paginator.page_range %}
                     {% if products.number == num %}
-                        <a href="?page={{ num }}" class="active">
+                        <a href="?page={{ num }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}" class="active">
                             {{ num }}
                         </a>
                     {% else %}
-                        <a href="?page={{ num }}">
+                        <a href="?page={{ num }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}">
                             {{ num }}
                         </a>
                     {% endif %}
                 {% endfor %}
                 {% if products.has_next %}
-                    <a href="?page={{ products.next_page_number }}" class="next">
+                    <a href="?page={{ products.next_page_number }}{% if query %}&amp;q={{ query|urlencode }}{% endif %}" class="next">
                         Next
                     </a>
                 {% endif %}

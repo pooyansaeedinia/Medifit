@@ -27,6 +27,8 @@ function updateLatestTotalItems() {
 }
 
 function updateLatestSlider() {
+    if (!latestTrack) return;
+
     const maxIndex = Math.ceil(latestTotalItems - latestItemsPerView);
     if (latestCurrentIndex > maxIndex) {
         latestCurrentIndex = maxIndex;

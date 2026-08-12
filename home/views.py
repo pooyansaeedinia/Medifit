@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
-from product_app.views import _enrich_product
-from django.core.mail import send_mail
 from django.conf import settings
+from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
+from django.core.validators import validate_email
+from django.shortcuts import redirect, render
 
-from product_app.models import Product, Category, Comments
+from product_app.models import Category, Comments, Product
+from product_app.views import _enrich_product
 
 
 # Create your views here.
@@ -37,7 +39,7 @@ def shop(request):
     products = (Product.objects.filter
                 (is_available=True)
                 .select_related('brand', 'category')
-                .prefetch_related('productdetail_set')
+                .prefetch_related('productbadge_set')
                 .order_by('-id')[:8]
                 )
     
@@ -45,7 +47,7 @@ def shop(request):
     products_2 = (Product.objects.filter
                 (is_available=True)
                 .select_related('brand', 'category')
-                .prefetch_related('productdetail_set')
+                .prefetch_related('productbadge_set')
                 .order_by('id')[:8]
                 )
     
@@ -75,24 +77,42 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        user_email = request.POST.get('email')
-        user_name = request.POST.get('full_name')
-        user_message = request.POST.get('message')
+        user_email = request.POST.get('email', '').strip()
+        user_name = request.POST.get('full_name', '').strip()
+        user_message = request.POST.get('message', '').strip()
 
-        send_mail(
-            subject=f"{user_name} feedback",
-            message=user_message,
-            from_email=user_email,
-            recipient_list=[settings.DEFAULT_FROM_EMAIL],
-            fail_silently=False,
-        )
-        
+        if user_name and user_message and user_email:
+            try:
+                validate_email(user_email)
+            except ValidationError:
+                return render(request, "home/contact.html")
+
+            send_mail(
+                subject=f"{user_name} feedback",
+                message=(
+                    f"From: {user_name}\n"
+                    f"Email: {user_email}\n\n"
+                    f"{user_message}"
+                ),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.DEFAULT_FROM_EMAIL],
+                fail_silently=False,
+            )
+
     return render(request, "home/contact.html")
 
 
 def subscribe(request):
     if request.method == 'POST':
-        user_email = request.POST.get('email')
+        user_email = request.POST.get('email', '').strip()
+
+        if not user_email:
+            return redirect('home:home')
+
+        try:
+            validate_email(user_email)
+        except ValidationError:
+            return redirect('home:home')
 
         send_mail(
             subject="Welcome to MEDIFIT",
@@ -105,6 +125,6 @@ def subscribe(request):
             fail_silently=False,
         )
 
-        return redirect(request.META.get('HTTP_REFERER', 'home:home'))
+        return redirect(request.META.get('HTTP_REFERER', '/'))
 
     return redirect('home:home')

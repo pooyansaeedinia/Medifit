@@ -43,15 +43,17 @@
     <div class="mobile-search-modal" id="mobileSearchModal">
         <div class="mobile-search-container">
             <div class="mobile-search-header">
-                <button class="mobile-search-back" id="closeMobileSearch">
+                <button class="mobile-search-back" id="closeMobileSearch" type="button">
                     <i class="bi bi-arrow-left"></i>
                 </button>
-                <div class="mobile-search-input-wrapper">
-                    <i class="bi bi-search"></i>
-                    <input type="text" id="mobileSearchInput" placeholder="Search medicines, health products..."
-                           aria-label="Search">
-                </div>
-                <button class="mobile-search-cancel" id="cancelMobileSearch">Cancel</button>
+                <form method="GET" action="{% url 'product_app:product_list' id=0 %}" id="mobileSearchForm">
+                    <div class="mobile-search-input-wrapper">
+                        <i class="bi bi-search"></i>
+                        <input type="search" id="mobileSearchInput" name="q" placeholder="Search medicines, health products..."
+                               aria-label="Search">
+                    </div>
+                </form>
+                <button class="mobile-search-cancel" id="cancelMobileSearch" type="button">Cancel</button>
             </div>
             <div class="mobile-search-body" id="mobileSearchBody">
                 <div class="mobile-search-suggestions" id="mobileSuggestions">

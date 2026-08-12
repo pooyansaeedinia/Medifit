@@ -24,7 +24,11 @@
             {% for category in categories %}
             <article class="category-card">
                 <div class="category-image">
-                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    {% else %}
+                        <img src="{% static 'media/images/Healt care.png' %}" alt="{{ category.name }}">
+                    {% endif %}
                 </div>
                 <div class="category-info">
                     <h3>{{ category.name }}</h3>
