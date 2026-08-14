@@ -1,16 +1,13 @@
 const recoveryForm = document.getElementById('recovery-form');
 const emailInput = document.getElementById('recovery-email');
 
-recoveryForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+if (recoveryForm) {
+    recoveryForm.addEventListener('submit', function(e) {
+        const email = emailInput.value.trim();
 
-    const email = emailInput.value.trim();
-
-    if (email === '') {
-        alert('Please enter your email address');
-        return;
-    }
-
-    alert('Reset link sent to ' + email);
-    recoveryForm.reset();
-});
+        if (email === '') {
+            e.preventDefault();
+            alert('Please enter your email address');
+        }
+    });
+}

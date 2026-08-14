@@ -60,6 +60,8 @@
                                 <div class="product-image">
                                     {% if product.image %}
                                         <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                        <img src="{% static 'media/images/Perfectil Hair copy.png' %}" alt="{{ product.name }}">
                                     {% endif %}
                                     {% if product.badge_detail %}
                                         <span class="product-badge">{{ product.badge_detail.get_badge_display }}</span>
@@ -74,7 +76,7 @@
                                             <span class="old-price">${{ product.display_old_price|floatformat:0 }}</span>
                                         {% endif %}
                                     </div>
-                                    <a href="product-detail.html" class="product-btn">View Details</a>
+                                    <a href="{% url 'product_app:product_detail' slug=product.slug %}" class="product-btn">View Details</a>
                                 </div>
                             </article>
                         {% endfor %}

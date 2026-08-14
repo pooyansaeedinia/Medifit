@@ -55,3 +55,31 @@ a {
 a:hover {
     background: #9b623c;
 }
+
+.verify-fallback {
+    margin-bottom: 20px;
+}
+
+a.verify-link {
+    display: inline-block;
+    margin-top: 12px;
+}
+
+.resend-btn {
+    display: inline-block;
+    background: transparent;
+    color: #b87c4f;
+    border: 2px solid #b87c4f;
+    padding: 10px 26px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    font-family: inherit;
+}
+
+.resend-btn:hover {
+    background: #b87c4f;
+    color: #ffffff;
+}
