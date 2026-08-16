@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'product_app',
     'home',
     'accounts',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +60,8 @@ MIDDLEWARE = [
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = 'MEDIFIT.urls'
+
+LOGIN_URL = 'accounts:login_signup'
 
 TEMPLATES = [
     {

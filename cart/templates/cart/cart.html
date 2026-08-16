@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Medifit || {{ cart.user.username }}'s Cart
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock style %}
+
+{% block content %}
+<!-- ========== CART HERO ========== -->
+<section class="cart-hero">
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <p>Review your items and proceed to checkout</p>
+    </div>
+</section>
+<!-- ========== CART CONTENT ========== -->
+<section class="cart-section">
+    <div class="container">
+        <div class="cart-wrapper">
+            <!-- Cart Items -->
+            <div class="cart-items">
+                {% if cart_items %}
+                {% for item in cart_items %}
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                    {% if item.product.image %}
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    {% else %}
+                        <img src="{% static 'media/images/Perfectil Hair copy.png' %}" alt="{{ item.product.name }}">
+                    {% endif %}
+                    </div>
+                    <div class="cart-item-info">
+                        <h3>{{ item.product.name }}</h3>
+                        <p class="cart-item-price">${{ item.product.price }}</p>
+                        <div class="cart-item-quantity">
+                            <a href="{% url 'cart:minus_item' item.id %}" style="text-decoration: none;" class="qty-btn">−</a>
+                            <input type="text" class="qty-input" value="{{ item.quantity }}" aria-label="Quantity">
+                            <a href="{% url 'cart:add_to_cart' item.product.id 1 %}" style="text-decoration: none;" class="qty-btn" data-id="1">+</a>
+                        </div> 
+                    </div>
+                    <div class="cart-item-total">
+                        <span class="item-total">${{ item.item_total|floatformat:2 }}</span>
+                        <a class="remove-btn" href="{% url 'cart:remove_item' item.id %}"><i class="bi bi-trash3"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>Your cart is empty.</p>
+                {% endif %}
+            </div>
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">${{ cart.total_price|floatformat:2 }}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="shipping">$10</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="total">${{ cart.total|floatformat:2 }}</span>
+                </div>
+                <a href="{% url 'cart:checkout' %}" class="checkout-btn">Proceed to Checkout <i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'home:shop' %}" class="continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+{% block scripts %}
+<script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock scripts %}

@@ -32,12 +32,7 @@
                     <span class="current-price">${{ product.price|floatformat:0 }}</span>
                 </div>
                 <div class="product-action">
-                    <div class="quantity-selector">
-                        <button class="qty-btn" id="decreaseQty">−</button>
-                        <input type="text" id="quantity" value="1" aria-label="Quantity">
-                        <button class="qty-btn" id="increaseQty">+</button>
-                    </div>
-                    <a href="#" class="add-to-cart-btn">Add to cart <i class="bi bi-arrow-right"></i></a>
+                    <a href="{% url 'cart:add_to_cart' product.id 1 %}" class="add-to-cart-btn">Add to cart <i class="bi bi-arrow-right"></i></a>
                 </div>
                 <div class="product-short-info">
                     <p>{{ product.description }}</p>
