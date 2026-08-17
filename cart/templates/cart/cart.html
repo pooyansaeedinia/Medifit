@@ -66,7 +66,7 @@
                     <span>Total</span>
                     <span id="total">${{ cart.total|floatformat:2 }}</span>
                 </div>
-                <a href="{% url 'cart:checkout' %}" class="checkout-btn">Proceed to Checkout <i class="bi bi-arrow-right"></i></a>
+                <a href="{% url 'cart:checkout' cart_id=cart.id %}" class="checkout-btn">Proceed to Checkout <i class="bi bi-arrow-right"></i></a>
                 <a href="{% url 'home:shop' %}" class="continue-shopping">Continue Shopping</a>
             </div>
         </div>

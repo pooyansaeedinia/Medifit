@@ -1,123 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/media/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/media/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="assets/media/images/favicons/site.webmanifest">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/checkout.css">
-    <title>Medifit || Checkout</title>
-</head>
-<body>
-<!-- Search modal -->
-<div class="search-modal" id="searchModal">
-    <div class="search-modal-overlay"></div>
-    <div class="search-modal-container">
-        <button class="search-modal-close" id="closeSearchModal"><i class="bi bi-x-lg"></i></button>
-        <div class="search-modal-content">
-            <div class="search-icon-large">
-                <i class="bi bi-search"></i>
-            </div>
-            <h3>What are you looking for?</h3>
-            <div class="search-input-wrapper">
-                <input type="text" id="searchInput" placeholder="Search for medicines, health products..."
-                       autocomplete="off" aria-label="Search">
-                <button id="searchSubmitBtn"><i class="bi bi-arrow-right"></i></button>
-            </div>
-            <div class="search-suggestions" id="searchSuggestions">
-                <p class="suggestions-title">Popular searches:</p>
-                <div class="suggestions-tags">
-                    <span>Hair tablets</span>
-                    <span>Pressure measuring</span>
-                    <span>Temperature gun</span>
-                    <span>Nebulizer mask</span>
-                    <span>Vitamins</span>
-                </div>
-            </div>
-            <div class="search-results" id="searchResults">
-                <p class="results-title">Products found:</p>
-                <div class="results-list" id="resultsList"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Mobile Search Modal-->
-<div class="mobile-search-modal" id="mobileSearchModal">
-    <div class="mobile-search-container">
-        <div class="mobile-search-header">
-            <button class="mobile-search-back" id="closeMobileSearch">
-                <i class="bi bi-arrow-left"></i>
-            </button>
-            <div class="mobile-search-input-wrapper">
-                <i class="bi bi-search"></i>
-                <input type="text" id="mobileSearchInput" placeholder="Search medicines, health products..."
-                       aria-label="Search">
-            </div>
-            <button class="mobile-search-cancel" id="cancelMobileSearch">Cancel</button>
-        </div>
-        <div class="mobile-search-body" id="mobileSearchBody">
-            <div class="mobile-search-suggestions" id="mobileSuggestions">
-                <p class="mobile-suggestions-title">Popular searches</p>
-                <div class="mobile-suggestions-tags">
-                    <span>Hair tablets</span>
-                    <span>Pressure measuring</span>
-                    <span>Temperature gun</span>
-                    <span>Nebulizer mask</span>
-                    <span>Vitamins</span>
-                </div>
-            </div>
-            <div class="mobile-search-results" id="mobileSearchResults" style="display: none;">
-                <div class="mobile-results-list" id="mobileResultsList"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Header -->
-<header>
-    <div class="container">
-        <div class="header-wrapper">
-            <div class="logo">
-                <h2>Medifit</h2>
-            </div>
-            <nav class="nav-links">
-                <a href="home-page.html">Home</a>
-                <a href="medical-shop.html">Shop</a>
-                <a href="category.html">Categories</a>
-                <a href="products.html">Products</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="header-icons">
-                <i class="bi bi-search"></i>
-                <a href="cart.html"><i class="bi bi-bag"></i></a>
-                <a href="login-signup.html"><i class="bi bi-person"></i></a>
-            </div>
-            <div class="mobile-actions">
-                <i class="bi bi-search mobile-search-icon"></i>
-                <a href="#"><i class="bi bi-bag mobile-bag-icon"></i></a>
-                <a href="login-signup.html"><i class="bi bi-person mobile-person-icon"></i></a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="bi bi-list"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Mobile navigation -->
-<div class="mobile-menu" id="mobileMenu">
-    <ul>
-        <li><a href="home-page.html">Home</a></li>
-        <li><a href="medical-shop.html">Shop</a></li>
-        <li><a href="category.html">Categories</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</div>
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock style %}
+
+{% block title %}
+    Medifit || Checkout
+{% endblock title %}
+
+{% block content %}
 <!--Checkout-->
 <section class="checkout-section">
     <div class="container">
@@ -125,170 +16,154 @@
             <!-- Billing Form -->
             <div class="billing-form">
                 <h2>Billing Details</h2>
-                <form id="checkoutForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" placeholder="Enter your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Enter your email" required>
-                        </div>
-                    </div>
+
+                <form method="POST" id="checkoutForm">
+                    {% csrf_token %}
+
+                    <!-- Phone -->
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                        <label for="{{ form.phone.id_for_label }}">Phone Number</label>
+                        {{ form.phone }}
+
+                        {% if form.phone.errors %}
+                            <div class="form-error">
+                                {{ form.phone.errors }}
+                            </div>
+                        {% endif %}
                     </div>
+
+                    <!-- Address -->
                     <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" placeholder="Enter your address" required>
+                        <label for="{{ form.address.id_for_label }}">Address</label>
+                        {{ form.address }}
+
+                        {% if form.address.errors %}
+                            <div class="form-error">
+                                {{ form.address.errors }}
+                            </div>
+                        {% endif %}
                     </div>
+
+                    <!-- City + Postal Code -->
                     <div class="form-row">
+
                         <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" placeholder="Enter your city" required>
+                            <label for="{{ form.city.id_for_label }}">City</label>
+                            {{ form.city }}
+
+                            {% if form.city.errors %}
+                                <div class="form-error">
+                                    {{ form.city.errors }}
+                                </div>
+                            {% endif %}
                         </div>
+
                         <div class="form-group">
-                            <label for="postal">Postal Code</label>
-                            <input type="text" id="postal" placeholder="Enter your postal code" required>
+                            <label for="{{ form.postal.id_for_label }}">Postal Code</label>
+                            {{ form.postal }}
+
+                            {% if form.postal.errors %}
+                                <div class="form-error">
+                                    {{ form.postal.errors }}
+                                </div>
+                            {% endif %}
                         </div>
+
                     </div>
-                    <!--Payment method-->
+
+                    <!-- Payment Method -->
                     <h3>Payment Method</h3>
+
                     <div class="payment-methods">
+
                         <label class="payment-option">
-                            <input type="radio" name="payment" value="card" checked>
-                            <i class="bi bi-credit-card"></i> Credit Card
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="card"
+                                {% if form.payment.value == 'card' or not form.payment.value %}
+                                    checked
+                                {% endif %}
+                            >
+                            <i class="bi bi-credit-card"></i>
+                            Credit Card
                         </label>
+
                         <label class="payment-option">
-                            <input type="radio" name="payment" value="paypal">
-                            <i class="bi bi-paypal"></i> PayPal
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="paypal"
+                                {% if form.payment.value == 'paypal' %}
+                                    checked
+                                {% endif %}
+                            >
+                            <i class="bi bi-paypal"></i>
+                            PayPal
                         </label>
+
                         <label class="payment-option">
-                            <input type="radio" name="payment" value="cod">
-                            <i class="bi bi-cash"></i> Cash on Delivery
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="cod"
+                                {% if form.payment.value == 'cod' %}
+                                    checked
+                                {% endif %}
+                            >
+                            <i class="bi bi-cash"></i>
+                            Cash on Delivery
                         </label>
+
                     </div>
-                    <button type="submit" class="place-order-btn">Place Order <i class="bi bi-arrow-right"></i></button>
+
+                    {% if form.payment.errors %}
+                        <div class="form-error">
+                            {{ form.payment.errors }}
+                        </div>
+                    {% endif %}
+
+                    <!-- Submit -->
+                    <button type="submit" class="place-order-btn">
+                        Place Order
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
                 </form>
             </div>
             <!-- Order Summary -->
             <div class="order-summary">
                 <h2>Your Order</h2>
                 <div class="order-items">
+                    {% for item in cart_items %}
                     <div class="order-item">
-                        <span class="item-name">Hair tablets x 2</span>
-                        <span class="item-price">$38</span>
+                        <span class="item-name">{{ item.product.name }} x {{ item.quantity }}</span>
+                        <span class="item-price">${{ item.item_total|floatformat:2 }}</span>
                     </div>
-                    <div class="order-item">
-                        <span class="item-name">Hair tablets x 2</span>
-                        <span class="item-price">$38</span>
-                    </div>
-                    <div class="order-item">
-                        <span class="item-name">Hair tablets x 2</span>
-                        <span class="item-price">$38</span>
-                    </div>
-                </div>
+                    {% endfor %}
+                </div>  
                 <div class="order-totals">
                     <div class="total-row">
                         <span>Subtotal</span>
-                        <span id="subtotal">$100.00</span>
+                        <span id="subtotal">${{ cart.total_price|floatformat:2 }}</span>
                     </div>
                     <div class="total-row">
                         <span>Shipping</span>
-                        <span id="shipping">$5.00</span>
+                        <span id="shipping">$10.00</span>
                     </div>
                     <div class="total-row grand-total">
                         <span>Total</span>
-                        <span id="total">$105.00</span>
+                        <span id="total">${{ cart.total|floatformat:2 }}</span>
                     </div>
                 </div>
-                <a href="cart.html" class="back-to-cart"><i class="bi bi-arrow-left"></i> Back to Cart</a>
+                <a href="{% url 'cart:cart' %}" class="back-to-cart"><i class="bi bi-arrow-left"></i> Back to Cart</a>
             </div>
         </div>
     </div>
 </section>
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-newsletter">
-            <div class="newsletter-content">
-                <h3>Subscribe to our Newsletter</h3>
-                <p>Get the latest updates on new products and special offers</p>
-            </div>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email address" aria-label="email">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-        <div class="footer-main">
-            <div class="footer-col brand-col">
-                <h3>Medifit</h3>
-                <p class="brand-desc">Your trusted partner in health and wellness. We provide quality healthcare
-                    products with care and reliability.</p>
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Returns & Refunds</a></li>
-                </ul>
-            </div>
-            <div class="footer-col contact-col">
-                <h4>Get in Touch</h4>
-                <ul class="contact-info">
-                    <li>
-                        <i class="bi bi-geo-alt"></i>
-                        <span>Iran, Tehran, Resalat highway, Kerman street</span>
-                    </li>
-                    <li>
-                        <i class="bi bi-envelope"></i>
-                        <span><a href="#">medifit@gmail.com</a></span>
-                    </li>
-                    <li>
-                        <i class="bi bi-telephone"></i>
-                        <span><a href="tel:+2122310694">+212 2310 694</a></span>
-                    </li>
-                    <li>
-                        <i class="bi bi-clock"></i>
-                        <span>Mon - Fri: 9:00 AM - 9:00 PM</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 <strong>Medifit</strong>. All rights reserved.</p>
-            <div class="footer-payment">
-                <i class="bi bi-credit-card"></i>
-                <i class="bi bi-paypal"></i>
-                <i class="bi bi-apple"></i>
-                <i class="bi bi-google-play"></i>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="assets/js/index.js"></script>
-<script src="assets/js/checkout.js"></script>
-</body>
-</html>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock js %}
